@@ -31,11 +31,13 @@ class Rectangle(Figure):
     def get_perimeter(self):
         return (self.side_a + self.side_b) * 2
 
+
 class Square(Rectangle):
     def __init__(self, side_a):
         if side_a <= 0:
             raise ValueError("Square sides can't be less than 0")
         super().__init__(side_a, side_a)
+
 
 r = Rectangle(3, 5)
 s = Square(5)
