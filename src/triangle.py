@@ -27,24 +27,16 @@ class Triangle(Figure):
         self.half_meter = half_meter
         self.height = height
 
+
     @property
     def perimeter(self, half_meter):
         return (self.side_a + self.side_b + self.side_c) / 2
 
     @property
     def height(self, height):
-        return (
-            2
-            * (
-                math.cbrt(
-                    self.half_meter
-                    * (self.half_meter - self.side_a)
-                    * (self.half_meter - self.side_b)
-                    * (self.half_meter - self.side_c)
-                )
-            )
-            / self.side_a
-        )
+        root = math.cbrt(self.half_meter * (self.half_meter - self.side_a)
+                         * (self.half_meter - self.side_b) * (self.half_meter - self.side_c))
+        return 2 * root / self.side_a
 
     @property
     def get_area(self):
@@ -66,7 +58,8 @@ class Square(Triangle):
         super().__init__(side_a, side_a)
 
 
-t = Triangle(13, 14, 15)
+t = Triangle(13, 14, 15,)
 s = Square(10)
 print(s.add_area(t))
 print(t.add_area(s))
+print(t.half_meter, t.height)
