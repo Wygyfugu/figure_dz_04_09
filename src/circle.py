@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import math
-from math import pi
+
 
 class Figure(ABC):
     @abstractmethod
@@ -20,26 +20,30 @@ class Figure(ABC):
 class Circle(Figure):
     def __init__(self, radius):
         if radius <= 0:
-            raise ValueError("Triangle sides can't be less than or equal to 0")
+            raise ValueError("Radius must be greater than 0")
         self.radius = radius
 
     def get_area(self):
-        return math.pi * self.radius ** 2
+        return math.pi * self.radius**2
 
     def get_perimeter(self):
         return 2 * math.pi * self.radius
 
 
-class Square(Circle):
+class Square(Figure):
     def __init__(self, side_a):
         if side_a <= 0:
-            raise ValueError("Square sides can't be less than or equal to 0")
-        super().__init__(side_a)
+            raise ValueError("Square sides must be greater than 0")
+        self.side_a = side_a
+
+    def get_area(self):
+        return self.side_a**2
+
+    def get_perimeter(self):
+        return 4 * self.side_a
 
 
-# Example usage
 c = Circle(5)
 s = Square(10)
 print(s.add_area(c))
 print(c.add_area(s))
-
