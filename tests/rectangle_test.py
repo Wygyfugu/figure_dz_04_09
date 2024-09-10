@@ -1,7 +1,17 @@
 from src.rectangle import Rectangle
 import pytest
 
-
+def test_rectangle_area_positive():
+    a = 3
+    b = 5
+    a += 1
+    b += 1
+    r = Rectangle(a, b)
+    assert r.get_area == 24, f'Area should be 15'
+    a -= 1
+    b -= 1
+    print(a)
+    print(b)
 @pytest.mark.parametrize(
     "side_a, side_b, area",
     [
