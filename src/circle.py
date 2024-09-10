@@ -16,4 +16,3 @@ class Circle(Figure):
 
 
 c = Circle(5)
-print(c.add_area)

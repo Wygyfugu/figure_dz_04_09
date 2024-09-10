@@ -15,5 +15,3 @@ class Square(Figure):
 
 
 s = Square(5)
-print(s.get_area())
-print(s.get_perimeter())

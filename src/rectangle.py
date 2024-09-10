@@ -16,4 +16,3 @@ class Rectangle(Figure):
 
 
 r = Rectangle(3, 5)
-print(r.add_area)

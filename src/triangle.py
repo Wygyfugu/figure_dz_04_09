@@ -26,5 +26,3 @@ class Triangle(Figure):
 
 
 t = Triangle(13, 14, 15)
-print(t.add_area)
-print(t.get_area(), t.get_perimeter())
