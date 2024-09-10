@@ -1,20 +1,5 @@
-from abc import ABC, abstractmethod
+from figure import Figure
 import math
-
-
-class Figure(ABC):
-    @abstractmethod
-    def get_area(self):
-        pass
-
-    @abstractmethod
-    def get_perimeter(self):
-        pass
-
-    def add_area(self, other_figure):
-        if not isinstance(other_figure, Figure):
-            raise ValueError("Should be a Figure")
-        return self.get_area() + other_figure.get_area()
 
 
 class Triangle(Figure):
@@ -40,16 +25,6 @@ class Triangle(Figure):
         return self.side_a + self.side_b + self.side_c
 
 
-class Square(Triangle):
-    def __init__(self, side_a):
-        if side_a <= 0:
-            raise ValueError("Square sides can't be less than or equal to 0")
-        super().__init__(side_a, side_a, side_a)
-
-
-# Example usage
 t = Triangle(13, 14, 15)
-s = Square(10)
-print(s.add_area(t))
-print(t.add_area(s))
+print(t.add_area)
 print(t.get_area(), t.get_perimeter())
