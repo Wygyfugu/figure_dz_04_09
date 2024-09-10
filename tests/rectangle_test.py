@@ -1,12 +1,14 @@
-from src.Rectangle import Rectangle
+from src.rectangle import Rectangle
 import pytest
 
-@pytest.mark.smoke
-def test_rectangle_integer():
-r = Rectangle(side_a:3, side_b:5)
-assert r.get_area == 15, 'Area should be 15'
 
-@pytest.mark.slow
-def test_rectangle_float():
-r = Rectangle(side_a:3.5, side_b:5.5)
-assert r.get_area == 19.25, 'Area should be 19.25'
+@pytest.mark.parametrise(
+    "side_a, side_b, area",
+    [
+        (3, 5, 15),
+        (3.5, 5.5, 19.25)
+    ]
+)
+def test_rectangle_positive(side_a, side_b, area):
+    r = Rectangle(side_a, side_b)
+    assert r.get_area == area, f"Area should be {area}"
